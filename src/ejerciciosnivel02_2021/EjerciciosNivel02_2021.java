@@ -10,20 +10,16 @@ package ejerciciosnivel02_2021;
  * @author xp
  */
 public class EjerciciosNivel02_2021 {
-
-    char [][] listaPalabras = {
-        {'P', 'A', 'T', 'A'},
-        {'P', 'A', 'T', 'O'},
-        {'R', 'A', 'T', 'O'},
-        {'R', 'A', 'M', 'O'},
-        {'G', 'A', 'M', 'O'},
-        {'G', 'A', 'T', 'O'},
-        {'M', 'A', 'T', 'O'},
-    };
-    
     public boolean esEscaleraDePalabras( char [][] listaPalabras){
         
-        
+        for (int i=0; i<listaPalabras[0].length - 1; i++){
+            if(listaPalabras[i][0] == listaPalabras[i+1][0]){
+            System.out.println("SON IGUALES");
+            }
+            else{
+                System.out.println("SON DISTINTOS");
+            }
+        }
         return true;
     }
     /**
@@ -41,7 +37,7 @@ public class EjerciciosNivel02_2021 {
         {'M', 'A', 'T', 'O'},
     };
         
-        System.out.println("ejercicio.esEscaleraDePalabras(listaPalabras)");
+        System.out.println(ejercicio.esEscaleraDePalabras(listaPalabras));
     }
     
 }
