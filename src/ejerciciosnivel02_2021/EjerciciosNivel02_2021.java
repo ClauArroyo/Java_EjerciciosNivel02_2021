@@ -11,15 +11,26 @@ package ejerciciosnivel02_2021;
  */
 public class EjerciciosNivel02_2021 {
     public boolean esEscaleraDePalabras( char [][] listaPalabras){
+        int contador1 = 0;
         
-        for (int i=0; i<listaPalabras[0].length - 1; i++){
-            if(listaPalabras[i][0] == listaPalabras[i+1][0]){
-            System.out.println("SON IGUALES");
+        for (int i=0; i<listaPalabras.length-1; i++){ //el bucle que procesa todas las filas
+            contador1 = 0; //inicializo el contador de diferencias antes de empezar el bucle interno
+            for (int j=0; j<listaPalabras[0].length; j++){
+                if(listaPalabras[i][j] == listaPalabras[i+1][j]){
+                System.out.println("SON IGUALES");
+                }
+                else{
+                    System.out.println("SON DISTINTOS");
+                    contador1++; //las letras son diferent4es
+                }
+                
             }
-            else{
-                System.out.println("SON DISTINTOS");
+            System.out.println("" + contador1); 
+            if (contador1 != 1){
+                return false; //si en algún momento las palabras se diferencian en más de una letra returne false
             }
         }
+        
         return true;
     }
     /**
