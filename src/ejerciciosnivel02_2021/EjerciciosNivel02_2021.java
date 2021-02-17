@@ -33,6 +33,25 @@ public class EjerciciosNivel02_2021 {
         
         return true;
     }
+    
+    public int costeErroresADN(String uno, String dos){
+        //primera versión, usando los dos Strings que me pasan
+        int coste = 0; //coste de los errores
+        
+        for (int i=0; i < uno.length(); i++){
+            if(uno.charAt(i)== '-' || dos.charAt(i)== '-'){
+                coste = coste + 2;
+            } else {
+                if(uno.charAt(i)== 'G' && dos.charAt(i) != 'C') {coste++;}
+                if(uno.charAt(i)== 'C' && dos.charAt(i) != 'G') {coste++;}
+                if(uno.charAt(i)== 'A' && dos.charAt(i) != 'T') {coste++;}
+                if(uno.charAt(i)== 'T' && dos.charAt(i) != 'A') {coste++;}
+            }
+            
+        }
+        return coste;
+    }
+    public void coste1
     /**
      * @param args the command line arguments
      */
@@ -49,6 +68,7 @@ public class EjerciciosNivel02_2021 {
     };
         
         System.out.println(ejercicio.esEscaleraDePalabras(listaPalabras));
+        System.out.println(ejercicio.costeErroresADN('GGGA-GAATCTCTGGACT', 'CCCTACTTA-AGACCGGT'));
     }
     
 }
