@@ -78,7 +78,34 @@ public class EjerciciosNivel02_2021 {
         return aux1;
     }
     
+     public String quitaAcentosV2(String cadena){
+        String auxiliar = "";
+        for (int i=0; i < cadena.length(); i++){
+            if (cadena.charAt(i)== 'á'){auxiliar = auxiliar + 'a'; }
+            else if (cadena.charAt(i)== 'é'){auxiliar = auxiliar + 'e'; }
+            else if (cadena.charAt(i)== 'í'){auxiliar = auxiliar + 'i'; }
+            else if (cadena.charAt(i)== 'ó'){auxiliar = auxiliar + 'o'; }
+            else if (cadena.charAt(i)== 'ú'){auxiliar = auxiliar + 'u'; }
+            else if (cadena.charAt(i)== 'ü'){auxiliar = auxiliar + 'u'; }
+            
+            else if (cadena.charAt(i)== 'Á'){auxiliar = auxiliar + 'A'; }
+            else if (cadena.charAt(i)== 'É'){auxiliar = auxiliar + 'E'; }
+            else if (cadena.charAt(i)== 'Í'){auxiliar = auxiliar + 'I'; }
+            else if (cadena.charAt(i)== 'Ó'){auxiliar = auxiliar + 'O'; }
+            else if (cadena.charAt(i)== 'Ú'){auxiliar = auxiliar + 'U'; }
+            else if (cadena.charAt(i)== 'Ü'){auxiliar = auxiliar + 'U'; }
+            else {
+                auxiliar = auxiliar + cadena.charAt(i);
+            }
+        }
+        return auxiliar;
+    }
+    
     public int strStr (String str1, String str2){
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        str1 = quitaAcentosV2(str1);
+        str2 = quitaAcentosV2(str2);
         int posicion = -1;
         //supoinemos que no hay acentos y  que todo es minúscula
         for (int i = 0; i < str1.length(); i++){
@@ -94,8 +121,22 @@ public class EjerciciosNivel02_2021 {
                 //la primera, que alguno de los dos length se haya termminado
                 //la segunda, que alguna letra sea distinta
                 
-                if (str1.charAt(i) == str2.charAt(j)){
-                    
+                if (j >= str2.length()){
+                    //Si ha salido porque ya no tenía más letras el str2, significa que el
+                    //str2 está dentro del str1 y además, su posición está guardada en 
+                    //posición
+                    return posicion;
+                }
+                
+                if (i >= str1.length()){
+                    //Si ha salido porque ya no tenía más letras el str1, significa que el
+                    //str2 de momento NO está dentro del str1
+                    return -1;
+                }
+                
+                if (str1.charAt(i) != str2.charAt(j)){
+                    i = posicion;
+                    posicion = -1;
                 }
             }
         }
@@ -127,6 +168,13 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.findDuplicate(new int[] {1,1,3,4,1}));
         
         System.out.println(ejercicio.strStr("hola Helios!", "el"));
+        System.out.println(ejercicio.strStr("hola Mundo", "Mun"));
+        System.out.println(ejercicio.strStr("hola MynMu", "Mun"));
+        System.out.println(ejercicio.strStr("hola MMunn", "Mun"));
+        System.out.println(ejercicio.strStr("hola MuMun", "Mun"));
+        System.out.println(ejercicio.strStr("hola MuMu", "Mun"));
+        System.out.println(ejercicio.strStr("hola MMunn", "mun"));
+        System.out.println(ejercicio.strStr("Mumn", "Mun"));
         
     }
     
