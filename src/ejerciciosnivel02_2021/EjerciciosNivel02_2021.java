@@ -165,6 +165,12 @@ public class EjerciciosNivel02_2021 {
                     if (entrada[i] == "+"){
                         operando1 = operando1 + operando2;
                     } 
+                    if (entrada[i] == "/"){
+                        operando1 = operando1 / operando2;
+                    } 
+                    if (entrada[i] == "-"){
+                        operando1 = operando1 - operando2;
+                    } 
                     posicionPila = posicionPila - 2;
                     pila[posicionPila] = operando1 + ""; //guardo el resultado en la casilla corespondiente
                     posicionPila++;
