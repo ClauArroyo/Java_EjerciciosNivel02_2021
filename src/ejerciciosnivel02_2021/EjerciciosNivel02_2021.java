@@ -144,6 +144,30 @@ public class EjerciciosNivel02_2021 {
         return posicion;
     }
     
+    public String calculadoraRPN (String[] entrada){
+        String pila [] = new String [100];
+        int posicionPila = 0; //indica el sitio de la pila en el que toca insertar o leer
+        for (int i = 0; i < entrada.length; i++){
+           
+            if (entrada[i] != "+" && entrada[i] != "-"&& entrada[i] != "*" && entrada[i] != "/"){
+                //System.out.print(entrada [i] + " ");
+                //es un operando, tengo que meterlo en la pila
+                pila [posicionPila] = entrada[i];
+                posicionPila++;
+            }
+            else{//es una operación
+               Double operando1 = Double.valueOf(pila[posicionPila-1]);
+               Double operando2 = Double.valueOf(pila[posicionPila-2]);
+               if (entrada[i] == "+"){
+                   operando1 = operando1 + operando2;
+               } 
+               posicionPila = posicionPila - 2;
+               pila[posicionPila] = operando1 + ""; //guardo el resultado en la casilla corespondiente
+            }
+        }
+        return"";
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -175,6 +199,8 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.strStr("hola MuMu", "Mun"));
         System.out.println(ejercicio.strStr("hola MMunn", "mun"));
         System.out.println(ejercicio.strStr("Mumn", "Mun"));
+        
+        ejercicio.calculadoraRPN(new String[] {"3", "2" ,"+", "7", "*", "15", "21", "+", "-"});
         
     }
     
