@@ -157,18 +157,21 @@ public class EjerciciosNivel02_2021 {
             }
             else{//es una operación
                 if (posicionPila-2 >= 0){
-                    Double operando1 = Double.valueOf(pila[posicionPila-1]);
-                    Double operando2 = Double.valueOf(pila[posicionPila-2]);
-                             
+                    Double operando1 = Double.valueOf(pila[posicionPila - 1]);
+                    Double operando2 = Double.valueOf(pila[posicionPila - 2]);
+                    if (entrada[i] == "*"){
+                        operando1 = operando1 * operando2;
+                    }         
                     if (entrada[i] == "+"){
                         operando1 = operando1 + operando2;
                     } 
                     posicionPila = posicionPila - 2;
                     pila[posicionPila] = operando1 + ""; //guardo el resultado en la casilla corespondiente
+                    posicionPila++;
                 }
             }
         }
-        return "";
+        return pila[0];
     }
     
     /**
@@ -203,7 +206,8 @@ public class EjerciciosNivel02_2021 {
         System.out.println(ejercicio.strStr("hola MMunn", "mun"));
         System.out.println(ejercicio.strStr("Mumn", "Mun"));
         
-        System.out.println(ejercicio.calculadoraRPN(new String[] {"3", "2" ,"+"}));
+        System.out.println(ejercicio.calculadoraRPN(new String[] {"3", "7", "*"}));
+        System.out.println(ejercicio.calculadoraRPN(new String[] {"3", "2" ,"+", "7", "*"}));
         ejercicio.calculadoraRPN(new String[] {"3", "2" ,"+", "7", "*", "15", "21", "+", "-"});
         
     }
