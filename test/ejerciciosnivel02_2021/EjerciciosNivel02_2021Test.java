@@ -121,5 +121,22 @@ public class EjerciciosNivel02_2021Test {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of calculadoraRPN method, of class EjerciciosNivel02_2021.
+     */
+    @Test
+    public void testCalculadoraRPN() {
+        System.out.println("calculadoraRPN");
+
+        EjerciciosNivel02_2021 instance = new EjerciciosNivel02_2021();
+
+        assertEquals("35.0", instance.calculadoraRPN(new String [] {"3", "2" ,"+", "7", "*"}));
+        assertEquals("49.0", instance.calculadoraRPN(new String [] {"5", "2" ,"+", "7", "*"}));
+        assertEquals("2.5", instance.calculadoraRPN(new String [] {"4", "2" ,"/", "5", "*"}));
+        assertEquals("ERROR", instance.calculadoraRPN(new String [] {"0", "4" ,"/", "5", "*"}));
+        assertEquals("ERROR", instance.calculadoraRPN(new String [] {"2", "/" ,"4", "5", "*"}));
+
+    }
     
 }
